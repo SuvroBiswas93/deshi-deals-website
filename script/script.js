@@ -4,7 +4,18 @@ function getElement(id){
 }
 
 
-document.getElementsByClassName('cart-btn')
+const cartButtons = document.getElementsByClassName('cart-btn') 
+
+for (let cartbtn of cartButtons) {
+    cartbtn.addEventListener('click',function(){
+        // const productImg = cartbtn.parentNode.parentNode.parentNode.childNodes[1].childNodes[1].src
+        const productImg = cartbtn.parentNode.parentNode.parentNode.children[0].children[0].src
+        const productTitle = cartbtn.parentNode.parentNode.childNodes[1].childNodes[0].innerText
+        const producPrice = cartbtn.parentNode.parentNode.children[2].children[0].innerText
+        console.log(producPrice)
+       
+    })
+}
 
 // document.getElementById('cart-btn-1').addEventListener('click',function(){
 //     const title = getElement('cart-title-1').innerText;
