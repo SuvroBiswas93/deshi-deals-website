@@ -11,9 +11,36 @@ for (let cartbtn of cartButtons) {
         // const productImg = cartbtn.parentNode.parentNode.parentNode.childNodes[1].childNodes[1].src
         const productImg = cartbtn.parentNode.parentNode.parentNode.children[0].children[0].src
         const productTitle = cartbtn.parentNode.parentNode.childNodes[1].childNodes[0].innerText
-        const producPrice = cartbtn.parentNode.parentNode.children[2].children[0].innerText
-        console.log(producPrice)
+        const productPrice = cartbtn.parentNode.parentNode.children[2].children[0].innerText
        
+
+        const totalPrice =getElement('total-price').innerText;
+
+        const currentPrice = Number(productPrice ) + Number(totalPrice);
+
+        getElement('total-price').innerText = currentPrice;
+
+        const totalQuantity = Number(getElement('total-quantity').innerText)
+
+        const finalQuantity = totalQuantity + 1;
+
+        getElement('total-quantity').innerText =finalQuantity
+
+        const cartContainer = getElement('cart-container')
+
+        const newCart = document.createElement('div')
+        
+        newCart.innerHTML = `
+        <div class="flex justify-between items-center rounded-lg bg-gray-200 p-4">
+                           <img src="${productImg}" alt="" class="w-12">
+                           <div>
+                               <h2 class="font-bold">${productTitle}</h2>
+                               <h2 class="font-bold">${productPrice} Tk</h2>
+                           </div> 
+                        </div>
+        
+        `;
+       cartContainer.append(newCart)
     })
 }
 
@@ -38,13 +65,13 @@ for (let cartbtn of cartButtons) {
 //     const newCart = document.createElement('div');
 
 //     newCart.innerHTML = `
-//                 <div class="flex justify-between items-center rounded-lg bg-gray-200 p-4">
-//                            <img src="./assets/kitchen-1.png" alt="" class="w-12">
-//                            <div>
-//                                <h2 class="font-bold">${title}</h2>
-//                                <h2 class="font-bold">${price} Tk</h2>
-//                            </div> 
-//                         </div>
+                // <div class="flex justify-between items-center rounded-lg bg-gray-200 p-4">
+                //            <img src="./assets/kitchen-1.png" alt="" class="w-12">
+                //            <div>
+                //                <h2 class="font-bold">${title}</h2>
+                //                <h2 class="font-bold">${price} Tk</h2>
+                //            </div> 
+                //         </div>
 //     `;
     
 //     cartContainer.append(newCart)
