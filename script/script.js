@@ -44,6 +44,11 @@ for (let cartbtn of cartButtons) {
     })
 }
 
+document.getElementById('clear-btn').addEventListener('click',function(){
+    const cartContainer = getElement('cart-container')
+    cartContainer.innerHTML =''
+})
+
 // document.getElementById('cart-btn-1').addEventListener('click',function(){
 //     const title = getElement('cart-title-1').innerText;
 //     const price = getElement('cart-price-1').innerText;
